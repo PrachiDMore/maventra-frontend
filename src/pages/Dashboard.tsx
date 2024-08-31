@@ -9,6 +9,7 @@ import graphData from "../utils/GraphData";
 import ProgressBar from "../components/ProgressBar";
 import results from "../utils/Results";
 import Layout from "../components/Layout";
+import { IoIosAdd } from "react-icons/io";
 
 
 const CustomLegend = (props: any) => {
@@ -30,19 +31,19 @@ const CustomLegend = (props: any) => {
 const Dashboard = () => {
     return (
         <Layout>
-            <div className="flex-1 h-screen bg-bgColor p-8 flex flex-col gap-8">
+            <div className="flex-1 min-h-screen bg-bgColor px-8 py-6 flex flex-col gap-6">
                 <div className="flex justify-between items-center">
                     <h1 className="text-lg font-bold">Dashboard</h1>
                     <div className="flex gap-6 items-center">
                         <p className="text-secondary font-medium">20 Sep 2019, Friday</p>
-                        <div className="bg-accentBlue/15 h-10 w-10 flex items-center justify-center rounded-md">
+                        <div className="bg-accentBlue/15 h-10 w-10 flex items-center justify-center rounded-md cursor-pointer hover:bg-accentBlue/20 duration-200">
                             <IoSearch className="text-accentBlue text-lg" />
                         </div>
                     </div>
                 </div>
 
 
-                <div className="flex justify-between bg-accentRed/20 rounded-2xl py-6 px-16 relative mt-4">
+                <div className="flex justify-between bg-accentRed/20 rounded-2xl py-6 px-16 relative mt-3">
                     <div className="grid gap-3">
                         <h1 className="text-accentRed font-semibold text-xl">Welcome back Anna!</h1>
                         <div className="text-darkGray">
@@ -58,7 +59,7 @@ const Dashboard = () => {
                     <div className="bg-white rounded-lg p-5 w-[40%]">
                         <div className="flex justify-between items-cente">
                             <h1 className=" font-bold text-sm">Latest Result</h1>
-                            <p className="flex items-center gap-3 font-medium text-secondary text-xs">More <MdArrowRightAlt className="text-xl" /></p>
+                            <p className="flex items-center gap-3 font-medium text-black/70 text-xs cursor-pointer hover:text-black/90 duration-200">More <MdArrowRightAlt className="text-xl" /></p>
                         </div>
                         <div className="flex flex-col justify-between mt-3">
                             {
@@ -75,7 +76,7 @@ const Dashboard = () => {
                     <div className="bg-white rounded-lg p-5 w-[60%]">
                         <div className="flex justify-between items-center">
                             <h1 className=" font-semibold text-sm">Time spent on learning</h1>
-                            <p className="flex items-center gap-3 text-xs font-medium">Last week <IoIosArrowDown className="text-lg" /></p>
+                            <p className="flex items-center gap-3 font-medium text-black/70 text-xs cursor-pointer hover:text-black/90 duration-200">Last week <IoIosArrowDown className="text-lg" /></p>
                         </div>
                         <div className="flex-1">
                             <ResponsiveContainer minHeight={255} width="100%">
@@ -88,9 +89,9 @@ const Dashboard = () => {
                                     <Tooltip />
                                     <XAxis tickLine={false} orientation="top" ticks={graphData.map((data) => data.name)} dataKey="name" axisLine={false} />
                                     <Legend content={CustomLegend} />
-                                    <Bar barSize={6} dataKey="Vocabulary" stackId="a" fill="#f76b82" />
-                                    <Bar barSize={6} dataKey="Grammar" stackId="a" fill="#4445a2" />
-                                    <Bar barSize={6} dataKey="Listening" stackId="a" fill="#4c84ff" />
+                                    <Bar barSize={6} dataKey="Vocabulary" stackId="a" fill="#ff808b" />
+                                    <Bar barSize={6} dataKey="Grammar" stackId="a" fill="#4d4cac" />
+                                    <Bar barSize={6} dataKey="Listening" stackId="a" fill="#5e81f4" />
                                     <Bar barSize={6} dataKey="Writing" stackId="a" fill="#dcdcdc" />
                                 </BarChart>
                             </ResponsiveContainer>
@@ -98,10 +99,10 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                     <div className="flex justify-between items-center">
                         <h1 className=" font-semibold">Your courses</h1>
-                        <p className="flex items-center gap-3 text-sm">More <MdArrowRightAlt className="text-xl" /></p>
+                        <p className="flex items-center gap-3 font-medium text-black/70 text-xs cursor-pointer hover:text-black/90 duration-200">More <MdArrowRightAlt className="text-xl" /></p>
                     </div>
                     <div className="flex gap-6">
                         <Card className={"bg-darkBlue"} shortform={'B2'} title={"Business English"} subtitle={"Grammar"} />
@@ -112,14 +113,19 @@ const Dashboard = () => {
 
             </div>
 
-            <div className="w-3/12 py-8 px-8 flex flex-col gap-10 border-l-2 border-black/10">
+            <div className="w-3/12 py-6 px-8 flex flex-col gap-10 border-l-2 border-black/10">
                 <div className="flex justify-between items-center">
                     <h1 className=" font-semibold">Logout</h1>
                     <IoMdLogIn className="text-secondary text-xl" />
                 </div>
 
                 <div className="flex flex-col items-center gap-4">
-                    <div className="w-28 h-28 p-3 border-secondary/20 border-4 rounded-full overflow-hidden"><img className="grayscale h-full aspect-square" src="/assets/profile.jpg" alt="" /></div>
+                    <div className="relative">
+                        <div className="w-28 h-28 p-3 border-secondary/20 border-4 rounded-full overflow-hidden">
+                            <img className="grayscale h-full aspect-square" src="/assets/profile.jpg" alt="" />
+                        </div>
+                        <div className="bg-accentBlue rounded-full text-white w-5 h-5 flex justify-center items-center absolute right-4 bottom-0"><IoIosAdd className="text-xl font-semibold"/></div>
+                    </div>
                     <div className="flex flex-col gap-2 items-center">
                         <h1 className="text-lg font-bold">Anna Morrison</h1>
                         <p className="text-sm text-secondary">Student</p>
@@ -129,7 +135,7 @@ const Dashboard = () => {
                 <div className="flex flex-col gap-5">
 
                     <div className="w-full gap-x-5 items-center grid grid-cols-12 ">
-                        <p className="col-span-2 aspect-square h-12 bg-secondary/20 p-2 flex justify-center items-center rounded-xl font-semibold">B2</p>
+                        <p className="col-span-2 aspect-square h-12 bg-secondary/10 p-2 flex justify-center items-center rounded-xl font-semibold">B2</p>
                         <div className="col-span-6 flex flex-col">
                             <h1 className="text-sm font-semibold">English</h1>
                             <p className="text-secondary text-xs mt-1">High Intermediate</p>
@@ -137,10 +143,10 @@ const Dashboard = () => {
                         <ProgressBar className="col-span-4" color="#4c84ff" progress={62} showProgress={false} />
                     </div>
                     <div className="w-full gap-x-5 items-center grid grid-cols-12 ">
-                        <p className="col-span-2 aspect-square h-12 bg-secondary/20 p-2 flex justify-center items-center rounded-xl font-semibold">B2</p>
+                        <p className="col-span-2 aspect-square h-12 bg-secondary/10 p-2 flex justify-center items-center rounded-xl font-semibold">C1</p>
                         <div className="col-span-6 flex flex-col">
-                            <h1 className="text-sm font-semibold">English</h1>
-                            <p className="text-secondary text-xs mt-1">High Intermediate</p>
+                            <h1 className="text-sm font-semibold">Spanish</h1>
+                            <p className="text-secondary text-xs mt-1">Advance</p>
                         </div>
                         <ProgressBar className="col-span-4" color="#4c84ff" progress={35} showProgress={false} />
                     </div>
@@ -154,7 +160,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="w-full flex gap-3 items-center">
-                        <div className="w-14 h-12 bg-accentRed/20 flex justify-center items-center  rounded-xl">
+                        <div className="w-14 h-12 bg-accentRed/10 flex justify-center items-center  rounded-xl">
                             <MdOutlineErrorOutline className="text-lg text-accentRed" />
                         </div>
                         <div className="w-full flex flex-col">
@@ -164,45 +170,24 @@ const Dashboard = () => {
                     </div>
 
                     <div className="w-full flex gap-3 items-center">
-                        <div className="w-14 h-12 bg-accentBlue/20 flex justify-center items-center  rounded-xl">
+                        <div className="w-14 h-12 bg-accentBlue/10 flex justify-center items-center  rounded-xl">
                             <MdMailOutline className="text-lg text-accentBlue" />
                         </div>
                         <div className="w-full flex flex-col">
                             <h1 className="text-sm font-semibold">Eng - Send grammar homework</h1>
-                            <p className="text-secondary text-xs mt-1">24 Sep 2019, Friday</p>
+                            <p className="text-secondary text-xs mt-1">29 Sep 2019, Wednesday</p>
                         </div>
                     </div>
 
                     <div className="w-full flex gap-3 items-center">
-                        <div className="w-14 h-12 bg-accentBlue/20 flex justify-center items-center  rounded-xl">
+                        <div className="w-14 h-12 bg-accentBlue/10 flex justify-center items-center  rounded-xl">
                             <MdMailOutline className="text-lg text-accentBlue" />
                         </div>
                         <div className="w-full flex flex-col">
                             <h1 className="text-sm font-semibold">Spanish - Send essey</h1>
-                            <p className="text-secondary text-xs mt-1">24 Sep 2019, Friday</p>
+                            <p className="text-secondary text-xs mt-1">05 Oct 2019, Monday</p>
                         </div>
                     </div>
-
-                    {/* <div>
-                        <div>
-                            <MdMailOutline />
-                        </div>
-                        <div>
-                            <h1>Eng - Send grammar homework</h1>
-                            <p>24 Sep 2019, Friday</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <MdMailOutline />
-                        </div>
-                        <div>
-                            <h1>Spanish - Send essey</h1>
-                            <p>24 Sep 2019, Friday</p>
-                        </div>
-                    </div> */}
-
                 </div>
 
 

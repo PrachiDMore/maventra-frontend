@@ -40,7 +40,7 @@ const Sidebar = () => {
         },
     ]
     return (
-        <div className={twMerge('h-screen py-8 flex flex-col justify-between border-r-2 border-black/10', open ? "w-2/12" : "w-[6vw]")}>
+        <div className={twMerge('min-h-screen py-8 flex flex-col justify-between border-r-2 border-black/10', open ? "w-2/12" : "w-[6vw]")}>
             <div className={twMerge('flex gap-7 items-center', open ? "px-9 justify-start" : "px-2 justify-center")}>
                 <h1 onClick={() => setOpen(!open)} className='select-none text-2xl bg-accentBlue rounded-lg w-7 h-7 flex justify-center items-center text-white font-extrabold'>L</h1>
                 {open && <h1 className='text-lg font-bold '>Logo</h1>}
