@@ -1,13 +1,10 @@
-import React from 'react'
-import Sidebar from '../components/Sidebar'
+import Layout from '../components/Layout';
 import { IoSearch } from "react-icons/io5";
 
 const Resources = () => {
   return (
-<div className='flex'>
-      <Sidebar />
-
-      <div className="w-full h-screen bg-bgColor p-8 flex flex-col gap-8">
+    <Layout>
+      <div className="flex-1 h-screen bg-bgColor p-8 flex flex-col gap-8">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">Resources</h1>
           <div className="flex gap-6 items-center">
@@ -18,7 +15,7 @@ const Resources = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }
 
